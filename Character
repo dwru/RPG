@@ -1,0 +1,97 @@
+
+package rpgbattle;
+
+public class Character {
+
+Dice dice = new Dice(); 
+
+String name;
+int strength;
+int dexterity;
+int intelligence;
+int Attack;
+int heal;
+int damage;
+int MaxLife;
+int CurrentLife;
+        
+
+public Character(String n, int s, int d, int i){
+this.name = n;
+this.strength = s;
+this.dexterity = d;
+this.intelligence = i;
+this.MaxLife = dice.Roll()+50;
+this.CurrentLife = MaxLife;
+}
+
+public int attack(){
+    return dice.Roll()+strength;
+}
+
+public void wound(int damage){
+    CurrentLife = CurrentLife - damage;
+    if(CurrentLife <= 0){
+        CurrentLife = 0;
+}
+}
+
+public void heal(){
+    heal = dice.Roll();
+    CurrentLife = CurrentLife + (heal * intelligence);
+    if (CurrentLife > MaxLife){
+    CurrentLife = MaxLife;
+}
+}
+
+public void setName(String n){
+
+this.name = n;
+}
+
+public void setStrength(int s){
+    
+this.strength = s;    
+}
+
+public void setDexterity(int d){
+    
+this.dexterity = d;    
+}
+
+public void setIntelligence(int i){
+    
+this.intelligence = i;    
+}
+
+public String getName(){
+
+return name;
+}
+
+public int getStrength(){
+    
+return strength;
+}
+
+public int getDexterity(){
+    
+return dexterity;    
+}
+
+public int getIntelligence(){
+    
+return intelligence;    
+}
+
+public int getCurrentLife(){
+    
+return CurrentLife;    
+}
+
+public int getMaxLife(){
+ 
+return MaxLife;    
+}
+}
+
