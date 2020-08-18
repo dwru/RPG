@@ -1,0 +1,19 @@
+
+package rpgbattle;
+
+import java.util.Random;
+
+public class Dice {
+
+private Random r; 
+
+public Dice(){
+    
+    r = new Random();
+}    
+
+public int Roll(){
+
+    return r.nextInt(6)+1;   
+}
+}
