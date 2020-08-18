@@ -1,0 +1,7 @@
+
+package rpgbattle;
+
+
+public class Knight extends Character{
+    
+}
