@@ -1,0 +1,59 @@
+
+package rpgbattle;
+
+
+public class RPGbattle {
+
+   
+    public static void main(String[] args) {
+     Character Wizzard = new Character("Gandalf",1,3,6);
+        
+    Character Barbarian = new Character("Conan",8,1,1);
+        
+        
+        System.out.println(Wizzard.getName()+" VS "+Barbarian.getName());
+        
+        System.out.println("-------------------------");
+        
+        for (int i = 1; Wizzard.getCurrentLife() >= 0 && Barbarian.getCurrentLife() >= 0; i++){
+            System.out.println("Round: "+ i);
+            
+            System.out.println(Wizzard.getName()+": "+Wizzard.getCurrentLife()+"hp");
+            System.out.println(Barbarian.getName()+":   "+Barbarian.getCurrentLife()+"hp");
+            
+            int x = Wizzard.attack();
+            Barbarian.wound(x);
+            
+            int y = Wizzard.attack();
+            Barbarian.wound(y);
+            
+            System.out.println(Wizzard.getName()+" attacks "+ Barbarian.getName()+" for "+x );
+            System.out.println(Barbarian.getName()+" attacks "+ Wizzard.getName()+" for "+y );
+            System.out.println("------------------------");
+            
+            if(Wizzard.getCurrentLife() <= 0 && Barbarian.getCurrentLife() <= 0){
+                System.out.println(Wizzard.getName()+" hp:  "+ Wizzard.getCurrentLife());
+                System.out.println(Barbarian.getName()+" hp:    "+ Barbarian.getCurrentLife());
+                System.out.println("Double Destruction!");
+                System.out.println("------------------------");
+                break;
+            }
+            
+            else if(Wizzard.getCurrentLife() <= 0){
+                System.out.println(Wizzard.getName()+" hp:  "+ Wizzard.getCurrentLife());
+                System.out.println(Barbarian.getName()+" hp:    "+ Barbarian.getCurrentLife());
+                System.out.println(Barbarian.getName()+" wins!");
+                System.out.println("------------------------");
+                break;
+            }
+             else if(Barbarian.getCurrentLife() <= 0){
+                System.out.println(Barbarian.getName()+" hp:    "+ Barbarian.getCurrentLife());
+                System.out.println(Wizzard.getName()+" hp:  "+ Wizzard.getCurrentLife());
+                System.out.println(Wizzard.getName()+" wins!");
+                System.out.println("------------------------");
+                break;
+        }
+         
+        }       
+}
+}
